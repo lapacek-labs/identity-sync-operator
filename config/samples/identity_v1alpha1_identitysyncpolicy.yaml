@@ -1,0 +1,15 @@
+apiVersion: identity.lapacek-labs.org/v1alpha1
+kind: IdentitySyncPolicy
+metadata:
+  name: identity-sync
+spec:
+  targetNamespaces:
+    - app-1
+    - app-2
+  serviceAccount:
+    name: identity-sync-account
+  secret:
+    name: identity-source-secret
+    sourceRef:
+      namespace: platform-system
+      name: identity-source-secret
